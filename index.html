@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#35123f"><title>Yukes Cloth Care</title>
+<style>
+:root{--p:#35123f;--p2:#4b1c59;--g:#d7a849;--cream:#fbf7f0;--ink:#24212a;--muted:#77727d;--lav:#f4eafa}*{box-sizing:border-box}body{margin:0;background:#f0eae3;color:var(--ink);font:14px Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:560px;min-height:100vh;margin:auto;background:var(--cream);box-shadow:0 0 28px #24102a12}.top{background:var(--p);color:white;padding:17px}.brand{font:700 25px Georgia,serif;letter-spacing:-.4px}.brand span{color:var(--g)}.tag{font-size:11px;color:#e7d9e9;margin-top:5px}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:13px;position:sticky;top:0;background:var(--cream);z-index:2}.tab{border:0;border-radius:14px;background:#f2ede8;color:#6c6570;padding:13px 4px;font-weight:700}.tab.active{background:var(--p);color:white;box-shadow:0 4px 10px #35123f20}.content{padding:4px 13px 30px}.datebox{display:flex;align-items:center;gap:10px;background:#f8efdf;border-radius:15px;padding:12px;margin:4px 0 13px}.dateicon{font-size:22px}.date-title{font-weight:700;font-size:15px}.date-value{font-size:12px;color:#68616b;margin-top:4px}.add{margin-left:auto;border:0;border-radius:11px;background:var(--p);color:#fff;padding:11px 12px;font-size:12px;font-weight:700;white-space:nowrap}.list{display:flex;flex-direction:column;gap:10px}.card{display:grid;grid-template-columns:22px 82px minmax(0,1fr) 22px;align-items:center;gap:9px;background:white;border:1px solid #eee8e2;border-radius:15px;padding:10px;min-height:106px}.check{width:21px;height:21px;accent-color:var(--p)}.photo{width:82px;height:86px;object-fit:cover;border-radius:10px;background:#f0ece8}.name{font-weight:700;font-size:14px;overflow-wrap:anywhere}.usage{display:inline-block;background:var(--lav);color:var(--p);border-radius:8px;padding:5px 7px;margin-top:7px;font-size:11px;font-weight:700}.last{font-size:11px;color:var(--muted);margin-top:6px}.more{border:0;background:transparent;font-size:21px;color:#6f6872;padding:0 2px;align-self:start}.actions{position:relative;align-self:start;z-index:5}.menu{position:absolute;right:0;top:25px;background:#fff;border:1px solid #e8dfea;border-radius:10px;box-shadow:0 6px 20px #24102a20;padding:5px;z-index:4;min-width:100px}.menu button{display:block;width:100%;text-align:left;border:0;background:white;padding:9px;border-radius:7px;font-size:12px}.menu .del{color:#b42318}.empty{background:white;border:1px dashed #d9cedc;border-radius:15px;padding:28px 18px;text-align:center;color:var(--muted);line-height:1.7}.history{display:flex;flex-direction:column;gap:9px}.hrow{display:grid;grid-template-columns:56px minmax(0,1fr) 22px;gap:8px;align-items:center;background:white;border:1px solid #eee8e2;border-radius:13px;padding:10px}.hdate{font-size:11px;font-weight:bold;color:var(--p)}.outfit{font-size:12px;font-weight:600;overflow-wrap:anywhere}.backdrop{position:fixed;inset:0;background:#16091bcc;display:none;align-items:flex-end;justify-content:center;z-index:10}.backdrop.show{display:flex}.modal{width:100%;max-width:560px;max-height:90vh;overflow:auto;background:var(--cream);border-radius:20px 20px 0 0;padding:18px 17px 24px}.mhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.mtitle{font-size:18px;font-weight:700;color:var(--p)}.close{border:0;border-radius:50%;width:34px;height:34px;background:#eee6f0;color:var(--p);font-size:21px}.field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.field label{font-size:12px;font-weight:700}.field input,.field select{width:100%;border:1px solid #ddd3df;border-radius:10px;background:#fff;padding:12px}.preview{display:none;width:84px;height:88px;object-fit:cover;border-radius:10px;margin-top:8px}.primary,.secondary{width:100%;border-radius:11px;padding:13px;font-weight:700;margin-top:8px}.primary{border:0;background:var(--p);color:white}.secondary{border:1px solid #d8cbdc;background:white;color:var(--p)}.note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:8px}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#211027;color:white;padding:12px 15px;border-radius:11px;font-size:12px;display:none;z-index:20;max-width:92%;text-align:center;line-height:1.45}.toast.show{display:block}@media(min-width:600px){body{padding:22px 0}.app{border-radius:20px;overflow:hidden;min-height:calc(100vh - 44px)}.backdrop{align-items:center;padding:18px}.modal{border-radius:20px;max-height:85vh}}@media(max-width:360px){.brand{font-size:22px}.content{padding-left:9px;padding-right:9px}.card{grid-template-columns:20px 68px minmax(0,1fr) 18px;gap:6px;padding:8px}.photo{width:68px;height:75px}.name{font-size:13px}.add{padding:10px 8px;font-size:11px}}
+ .firebase-test{display:block;margin:12px auto 24px;padding:10px 14px;border:1px solid #d7a849;border-radius:10px;background:#35123f;color:#fff;font-weight:700}
+</style></head><body><div class="app"><header class="top"><div class="brand"><span>Yukes</span> Cloth Care</div><div class="tag">Track your outfits, one day at a time</div></header><nav class="tabs"><button class="tab active" data-tab="shirts">♟ Shirts</button><button class="tab" data-tab="pants">▰ Pants</button><button class="tab" data-tab="history">◷ History</button></nav><main class="content"><section class="datebox"><div class="dateicon">▦</div><div><div class="date-title" id="dateTitle">Today</div><div class="date-value" id="dateValue"></div></div><button class="add" id="addBtn">＋ Add Shirt</button></section><section class="list" id="list"></section></main></div>
+<div class="backdrop" id="clothBackdrop"><form class="modal" id="clothForm"><div class="mhead"><div class="mtitle" id="modalTitle">Add Shirt</div><button class="close" type="button" id="closeCloth">×</button></div><div class="field"><label for="clothName">Clothing name</label><input id="clothName" maxlength="50" placeholder="e.g. Light grey shirt" required></div><div class="field"><label for="clothFile">Clothing photo (optional)</label><input id="clothFile" type="file" accept="image/*"><img id="preview" class="preview" alt="Photo preview"><div class="note">Photos are stored locally on this device in this design version.</div></div><div class="field"><label for="clothColor">Color (optional)</label><input id="clothColor" maxlength="30" placeholder="e.g. Light grey"></div><button class="primary" type="submit">Save clothing</button><button class="secondary" type="button" id="cancelCloth">Cancel</button></form></div>
+<div class="backdrop" id="historyBackdrop"><form class="modal" id="historyForm"><div class="mhead"><div class="mtitle">Edit Outfit History</div><button class="close" type="button" id="closeHistory">×</button></div><div class="field"><label for="hdate">Outfit date</label><input type="date" id="hdate" required></div><div class="field"><label for="hshirt">Shirt</label><select id="hshirt" required></select></div><div class="field"><label for="hpant">Pant</label><select id="hpant" required></select></div><button class="primary">Save history</button><button class="secondary" type="button" id="cancelHistory">Cancel</button></form></div><div class="toast" id="toast"></div>
+<script>
+  // Fresh design build: local metadata in localStorage, photo blobs in IndexedDB. No Firebase in this stage.
+const DB='YukesClothCareDesignDB', STORE='photos', META='yukesDesignClothes_v1', HIST='yukesDesignHistory_v1';let db,clothes=[],history=[],tab='shirts',editId='',editHistoryId='',pendingKey='',pendingBlob=null,shirtSelected='',pantSelected='',toastTimer;
+const $=id=>document.getElementById(id),id=()=>crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random().toString(36).slice(2),today=()=>{let d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+function toast(s){$('toast').textContent=s;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),3200)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function read(k){try{let x=JSON.parse(localStorage.getItem(k));return Array.isArray(x)?x:[]}catch{return []}}
+function save(){try{localStorage.setItem(META,JSON.stringify(clothes));localStorage.setItem(HIST,JSON.stringify(history));if(window.yukesCloudSync)window.yukesCloudSync(clothes,history);return true}catch(e){console.error(e);toast('Could not save clothing details in browser storage.');return false}}
+function openDB(){return new Promise((res,rej)=>{let r=indexedDB.open(DB,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains(STORE))r.result.createObjectStore(STORE)};r.onsuccess=()=>{db=r.result;res(db)};r.onerror=()=>rej(r.error)})}
+function photo(action,key,value){return new Promise((res,rej)=>{let tx=db.transaction(STORE,action==='get'?'readonly':'readwrite'),s=tx.objectStore(STORE),r=action==='put'?s.put(value,key):action==='get'?s.get(key):s.delete(key);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+function placeholder(type){return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140"><rect width="120" height="140" rx="12" fill="#f1ece7"/><path d="${type==='shirt'?'M38 24 49 17 60 31 71 17 82 24 104 39 91 61 82 54 82 123 38 123 38 54 29 61 16 39Z':'M34 20H86L92 51 82 124H62L58 67 54 124H34L28 51Z'}" fill="${type==='shirt'?'#b6cde4':'#344b69'}" stroke="#7d8490" stroke-width="2"/></svg>`)}
+async function src(c){if(c.photoKey&&db){try{let b=await photo('get',c.photoKey);if(b)return URL.createObjectURL(b)}catch(e){console.warn(e)}}return c.oldImage||placeholder(c.type)}
+function dateLabel(k){if(!k)return 'Not used yet';let d=new Date(k+'T00:00:00'),n=new Date();n.setHours(0,0,0,0);let diff=Math.round((n-d)/86400000);return diff<=0?'Used today':diff===1?'Used yesterday':diff<7?`Used ${diff} days ago`:`Last used ${k.split('-').reverse().join('.')}`}
+async function render(){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  $('addBtn').style.display=tab==='history'?'none':'block';
+  $('addBtn').textContent=tab==='shirts'?'＋ Add Shirt':'＋ Add Pant';
+  $('dateTitle').textContent=tab==='history'?'Outfit History':'Today';
+  $('dateValue').textContent=tab==='history'?`${new Set(history.map(x=>x.date)).size} days recorded · ${history.length} outfits`:new Date().toLocaleDateString('en-IN',{weekday:'long',day:'2-digit',month:'short',year:'numeric'});
+  let list=$('list');
+  if(tab==='history'){
+    if(!history.length){list.innerHTML='<div class="empty">No outfit history yet.<br>Select one shirt and one pant to record an outfit.</div>';return}
+    list.innerHTML=history.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(h=>`<article class="hrow"><div class="hdate">${esc((h.date||today()).split('-').reverse().join('.'))}</div><div class="outfit">${esc(h.shirtName||'Shirt')} – ${esc(h.pantName||'Pant')}</div><div class="actions"><button type="button" class="more" data-hmenu="${esc(h.id)}">⋮</button></div></article>`).join('');
+    list.querySelectorAll('[data-hmenu]').forEach(b=>b.addEventListener('click',ev=>{ev.preventDefault();ev.stopPropagation();menu(b,b.dataset.hmenu,true)}));
+    return;
+  }
+  let type=tab==='shirts'?'shirt':'pant',items=clothes.filter(c=>c.type===type).sort((a,b)=>a.name.localeCompare(b.name));
+  if(!items.length){list.innerHTML=`<div class="empty">No ${type==='shirt'?'shirts':'pants'} added yet.<br>Tap <b>＋ Add ${type==='shirt'?'Shirt':'Pant'}</b> to add your first item.</div>`;return}
+  let rendered=await Promise.all(items.map(async c=>({c,img:await src(c)})));
+  list.innerHTML=rendered.map(({c,img})=>`<article class="card"><input class="check" type="checkbox" data-check="${esc(c.id)}" ${(type==='shirt'?shirtSelected:pantSelected)===c.id?'checked':''}><img class="photo" src="${img}" alt="${esc(c.name)}"><div><div class="name">${esc(c.name)}</div><div class="usage">${type==='shirt'?'♟':'▰'} &nbsp;${c.count||0} ${(c.count||0)===1?'time':'times'} used</div><div class="last">◷ &nbsp;${dateLabel(c.lastUsed)}</div></div><div class="actions"><button type="button" class="more" data-menu="${esc(c.id)}">⋮</button></div></article>`).join('');
+  list.querySelectorAll('[data-check]').forEach(b=>b.addEventListener('change',()=>select(type,b.dataset.check,b.checked)));
+  list.querySelectorAll('[data-menu]').forEach(b=>b.addEventListener('click',ev=>{ev.preventDefault();ev.stopPropagation();menu(b,b.dataset.menu,false)}));
+}
+function menu(btn,key,isHistory){
+  document.querySelectorAll('.menu').forEach(x=>x.remove());
+  const m=document.createElement('div');
+  m.className='menu';
+  m.innerHTML='<button type="button" data-edit>Edit</button><button type="button" class="del" data-delete>Delete</button>';
+  m.style.zIndex='20';
+  btn.parentElement.appendChild(m);
+  m.querySelector('[data-edit]').addEventListener('click',ev=>{
+    ev.preventDefault();ev.stopPropagation();m.remove();
+    if(isHistory)editHistory(key);else openCloth(key);
+  });
+  m.querySelector('[data-delete]').addEventListener('click',ev=>{
+    ev.preventDefault();ev.stopPropagation();m.remove();
+    if(isHistory)deleteHistory(key);else deleteCloth(key);
+  });
+  const outside=ev=>{
+    if(!m.contains(ev.target)&&ev.target!==btn){
+      m.remove();document.removeEventListener('pointerdown',outside,true);
+    }
+  };
+  setTimeout(()=>document.addEventListener('pointerdown',outside,true),80);
+}
+function select(type,key,on){
+  if(type==='shirt')shirtSelected=on?key:'';else pantSelected=on?key:'';
+  if(shirtSelected&&pantSelected){
+    let s=clothes.find(c=>c.id===shirtSelected),p=clothes.find(c=>c.id===pantSelected),d=today();
+    if(!s||!p){toast('Could not find the selected clothes.');return}
+    if(history.some(h=>h.date===d&&h.shirtId===s.id&&h.pantId===p.id)){
+      shirtSelected=pantSelected='';toast('This exact outfit is already recorded today.');render();return
+    }
+    history.push({id:id(),date:d,shirtId:s.id,pantId:p.id,shirtName:s.name,pantName:p.name});
+    s.count=(s.count||0)+1;p.count=(p.count||0)+1;s.lastUsed=p.lastUsed=d;save();shirtSelected=pantSelected='';toast('Outfit saved to History!');render()
+  }else toast(on?'Selected. Now select a matching '+(type==='shirt'?'pant':'shirt')+'.':'Selection cleared.')
+}
+function openCloth(key=''){
+  editId=key;pendingKey='';pendingBlob=null;$('clothForm').reset();$('preview').style.display='none';
+  let c=key?clothes.find(x=>x.id===key):null,type=c?c.type:(tab==='shirts'?'shirt':'pant');
+  $('modalTitle').textContent=(c?'Edit ':'Add ')+(type==='shirt'?'Shirt':'Pant');$('clothBackdrop').dataset.type=type;
+  if(c){$('clothName').value=c.name;$('clothColor').value=c.color||'';pendingKey=c.photoKey||'';if(c.oldImage){$('preview').src=c.oldImage;$('preview').style.display='block'}else if(c.photoKey)src(c).then(u=>{$('preview').src=u;$('preview').style.display='block'})}
+  $('clothBackdrop').classList.add('show')
+}
+function closeCloth(){$('clothBackdrop').classList.remove('show')}
+async function deleteCloth(key){
+  let c=clothes.find(x=>x.id===key);if(!c||!confirm(`Delete ${c.name}?`))return;
+  clothes=clothes.filter(x=>x.id!==key);history=history.filter(h=>h.shirtId!==key&&h.pantId!==key);
+  if(c.photoKey)try{await photo('delete',c.photoKey)}catch{}
+  if(shirtSelected===key)shirtSelected='';if(pantSelected===key)pantSelected='';
+  save();render();toast('Clothing item deleted.')
+                                                         
+}
+
+  function editHistory(key){
+  const h=history.find(x=>String(x.id)===String(key));
+  if(!h){toast('History entry not found. Refresh and try again.');return}
+  let shirt=clothes.find(c=>String(c.id)===String(h.shirtId));
+  let pant=clothes.find(c=>String(c.id)===String(h.pantId));
+  if(!shirt&&h.shirtName)shirt=clothes.find(c=>c.type==='shirt'&&c.name===h.shirtName);
+  if(!pant&&h.pantName)pant=clothes.find(c=>c.type==='pant'&&c.name===h.pantName);
+  const shirts=clothes.filter(c=>c.type==='shirt');
+  const pants=clothes.filter(c=>c.type==='pant');
+  if(!shirts.length||!pants.length){toast('Add at least one shirt and one pant before editing.');return}
+  $('hshirt').innerHTML=shirts.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
+  $('hpant').innerHTML=pants.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
+  if(shirt)$('hshirt').value=String(shirt.id);
+  if(pant)$('hpant').value=String(pant.id);
+  editHistoryId=String(h.id);
+  $('hdate').value=h.date||today();
+  $('historyBackdrop').classList.add('show');
+}
+function deleteHistory(key){
+  const index=history.findIndex(x=>String(x.id)===String(key));
+  if(index<0){toast('History entry not found. Refresh and try again.');return}
+  const removed=history[index];
+  history.splice(index,1);
+  if(!save()){
+    history.splice(index,0,removed);
+    return;
+  }
+  render();
+  toast('History entry deleted.');
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});
+$('addBtn').onclick=()=>openCloth();
+$('closeCloth').onclick=$('cancelCloth').onclick=closeCloth;
+$('clothBackdrop').onclick=e=>{if(e.target.id==='clothBackdrop')closeCloth()};
+$('closeHistory').onclick=$('cancelHistory').onclick=()=>{
+  $('historyBackdrop').classList.remove('show');
+  editHistoryId='';
+};
+$('historyBackdrop').onclick=e=>{
+  if(e.target.id==='historyBackdrop'){
+    $('historyBackdrop').classList.remove('show');
+    editHistoryId='';
+  }
+};
+$('clothFile').addEventListener('change',async e=>{
+  let f=e.target.files[0];
+  if(!f)return;
+  if(!f.type.startsWith('image/')){toast('Choose an image file.');return}
+  if(f.size>15*1024*1024){toast('Choose a photo under 15 MB.');return}
+  try{
+    let img=new Image(),url=URL.createObjectURL(f);
+    img.onload=async()=>{
+      try{
+        let scale=Math.min(1,1000/Math.max(img.width,img.height)),canvas=document.createElement('canvas');
+        canvas.width=Math.max(1,Math.round(img.width*scale));
+        canvas.height=Math.max(1,Math.round(img.height*scale));
+        canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
+        let blob=await new Promise(r=>canvas.toBlob(r,'image/jpeg',.78));
+        if(!blob)throw Error('Image compression failed');
+        if(!db)await openDB();
+        let key=id();
+        await photo('put',key,blob);
+        pendingKey=key;pendingBlob=blob;
+        $('preview').src=URL.createObjectURL(blob);
+        $('preview').style.display='block';
+        toast('Photo ready.');
+      }catch(err){console.error(err);toast('Could not store photo on this device.')}
+      finally{URL.revokeObjectURL(url)}
+    };
+    img.onerror=()=>{toast('Could not read this image. Choose another.');URL.revokeObjectURL(url)};
+    img.src=url;
+  }catch(err){console.error(err);toast('Photo storage is unavailable.')}
+});
+$('clothForm').onsubmit=async e=>{
+  e.preventDefault();
+  let name=$('clothName').value.trim();
+  if(!name)return;
+  let type=$('clothBackdrop').dataset.type,c=editId?clothes.find(x=>x.id===editId):null;
+  if(!c)c={id:id(),type,name,count:0,lastUsed:'',photoKey:'',oldImage:''};
+  c.name=name;c.type=type;c.color=$('clothColor').value.trim();
+  if(pendingKey)c.photoKey=pendingKey;
+  if(!clothes.some(x=>x.id===c.id))clothes.push(c);
+  history.forEach(h=>{
+    if(h.shirtId===c.id)h.shirtName=name;
+    if(h.pantId===c.id)h.pantName=name;
+  });
+  if(!save())return;
+  editId='';closeCloth();await render();toast('Saved: '+name);
+};
+$('historyForm').onsubmit=async e=>{
+  e.preventDefault();
+  const targetId=String(editHistoryId||'');
+  const h=history.find(x=>String(x.id)===targetId);
+  const date=$('hdate').value,shirtId=$('hshirt').value,pantId=$('hpant').value;
+  const shirt=clothes.find(c=>String(c.id)===String(shirtId)&&c.type==='shirt');
+  const pant=clothes.find(c=>String(c.id)===String(pantId)&&c.type==='pant');
+  if(!h){toast('Could not find this history entry. Close and reopen Edit.');return}
+  if(!date||!shirt||!pant){toast('Choose a valid date, shirt, and pant.');return}
+  const duplicate=history.some(x=>
+    String(x.id)!==targetId&&x.date===date&&
+    String(x.shirtId)===String(shirt.id)&&String(x.pantId)===String(pant.id)
+  );
+  if(duplicate){toast('That exact outfit is already recorded for this date.');return}
+  const old={...h};
+  Object.assign(h,{
+    date,
+    shirtId:shirt.id,
+    pantId:pant.id,
+    shirtName:shirt.name,
+    pantName:pant.name
+  });
+  if(!save()){Object.assign(h,old);return}
+  editHistoryId='';
+  $('historyBackdrop').classList.remove('show');
+  await render();
+  toast('History updated successfully!');
+};
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeCloth();
+    $('historyBackdrop').classList.remove('show');
+    editHistoryId='';
+    document.querySelectorAll('.menu').forEach(x=>x.remove());
+  }
+});
+(async()=>{
+  try{await openDB()}
+  catch(e){console.warn(e);toast('Photo storage unavailable. You can still add clothing without photos.')}
+  clothes=read(META);
+  history=read(HIST);
+  if(!clothes.length){
+    let old=read('yukesClothCare_v1');
+    if(old.length){
+      clothes=old.map(c=>({...c,id:c.id||id(),type:c.type||'shirt',oldImage:c.image||'',photoKey:''}));
+      save();
+    }
+  }
+  if(!history.length){
+    history=read('yukesClothCareHistory_v1');
+    if(history.length)save();
+  }
+  history=history.map(h=>{
+    const item={...h,id:h.id||id(),date:h.date||h.usedDate||today()};
+    let shirt=clothes.find(c=>String(c.id)===String(item.shirtId));
+    let pant=clothes.find(c=>String(c.id)===String(item.pantId));
+    if(!shirt&&item.shirtName)shirt=clothes.find(c=>c.type==='shirt'&&c.name===item.shirtName);
+    if(!pant&&item.pantName)pant=clothes.find(c=>c.type==='pant'&&c.name===item.pantName);
+    if(shirt){item.shirtId=shirt.id;item.shirtName=shirt.name}
+    if(pant){item.pantId=pant.id;item.pantName=pant.name}
+    return item;
+  });
+  save();
+  render();
+})();
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import {
+    getFirestore, collection, getDocs, doc, setDoc, deleteDoc
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA3cpCfID24CIN3ksSaLZegsQvjvFDCs48",
+    authDomain: "dress-maintenance.firebaseapp.com",
+    projectId: "dress-maintenance",
+    storageBucket: "dress-maintenance.firebasestorage.app",
+    messagingSenderId: "739632974782",
+    appId: "1:739632974782:web:76738433c04234deb807ef",
+    measurementId: "G-J33EYPJVK8"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  window.yukesFirebase = { app, db };
+  let syncRunning = Promise.resolve();
+
+  // Sync metadata only. Photo blobs remain in IndexedDB on this device.
+  async function syncCollection(name, items) {
+    const ref = collection(db, name);
+    const snapshot = await getDocs(ref);
+    const keep = new Set(items.map(x => String(x.id)));
+    for (const remoteDoc of snapshot.docs) {
+      if (!keep.has(remoteDoc.id)) await deleteDoc(remoteDoc.ref);
+    }
+    for (const item of items) {
+      const clean = { ...item };
+      delete clean.oldImage;
+      // photoKey is device-local; never treat it as a cloud photo.
+      delete clean.photoKey;
+      await setDoc(doc(db, name, String(item.id)), clean);
+    }
+  }
+
+  window.yukesCloudSync = (clothes, history) => {
+    syncRunning = syncRunning.then(async () => {
+      await syncCollection("clothes", clothes);
+      await syncCollection("outfitHistory", history);
+      console.log("Yukes data synced to Firestore.");
+    }).catch(error => {
+      console.error("Firestore sync failed:", error);
+      if (typeof window.toast === "function") window.toast("Cloud sync failed: " + (error.code || error.message));
+    });
+    return syncRunning;
+  };
+
+  window.testFirestoreConnection = async function () {
+    try {
+      const [clothesSnap, historySnap] = await Promise.all([
+        getDocs(collection(db, "clothes")),
+        getDocs(collection(db, "outfitHistory"))
+      ]);
+      alert("Firestore connection successful! Clothes: " + clothesSnap.size + ", history: " + historySnap.size);
+    } catch (error) {
+      console.error("Firestore test failed:", error);
+      alert("Firestore test failed: " + (error.code || error.message));
+    }
+  };
+
+  console.log("Firebase initialized. Save a clothing item or outfit to sync metadata.");
+</script>
+  <button class="firebase-test" onclick="window.testFirestoreConnection?.()">Test Firebase Connection</button>
+</body></html>
